@@ -7,7 +7,8 @@ var tyLienApp = angular.module('tyLienApp', [])
 
         $scope.url = 'www.google.com';
         $scope.result = {
-            host: $location.host()
+            host: $location.host(),
+            port: $location.port()
         };
 
         $scope.submit = function() {

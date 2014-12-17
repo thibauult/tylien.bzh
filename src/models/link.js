@@ -23,7 +23,7 @@ linkSchema.statics.findOrCreateByUrl = function(url, cb) {
     this.findOne({ url: url }, function(err, link) {
 
         if(err || !link) {
-            new Link({ url: req.body.url })
+            new Link({ url: url })
                 .save(function(err, link) {
                     if(err)       cb(null);
                     else if(link) cb(link);
@@ -37,7 +37,7 @@ linkSchema.statics.findOrCreateByUrl = function(url, cb) {
     });
 }
 
-linkSchema.findByKey = function(key, cb) {
+linkSchema.statics.findByKey = function(key, cb) {
 
     this.findByIdAndUpdate(key, { $inc: { clicks: 1  } }, function(err, link) {
 

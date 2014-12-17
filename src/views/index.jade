@@ -31,5 +31,7 @@ block content
               button(type="button" class="btn btn-sm btn-default" data-toggle="popover" data-placement="bottom" data-trigger="focus" title='Copy' data-content="Copied !")
                 span(class='cursor-hand glyphicon glyphicon-edit' aria-hidden='true')
             .col-md-11
-              p
+              p(ng-if='result.port == 80')
                 a.cursor-text(href='/{{ result.key }}' target='_blank') {{ result.host }}/{{ result.key }}
+              p(ng-if='result.port != 80')
+                a.cursor-text(href='/{{ result.key }}' target='_blank') {{ result.host }}:{{ result.port }}/{{ result.key }}
