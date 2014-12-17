@@ -1,0 +1,12 @@
+
+body {
+  margin-top: 20px;
+}
+
+.cursor-hand {
+  cursor: pointer;
+}
+
+.cursor-text, .cursor-text:hover {
+  cursor: text;
+}

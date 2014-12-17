@@ -1,0 +1,35 @@
+extends layout
+
+block content
+
+  .page-header
+    h1.animated.bounceInLeft TyLien
+      small &nbsp;The first .bzh url shortener
+
+  .jumbotron(ng-controller='HomeCtrl')
+    p Please paste your long URL here :
+
+    .row
+      .col-md-10
+        .input-group
+          .input-group-addon
+            span(class='glyphicon glyphicon-send' aria-hidden='true')
+          input.form-control(ng-model='url' id='urlInput' placeholder='Paste the URL to shorten' size=64)
+      .col-md-2
+        button.btn.btn-success(ng-click='submit()' class='pull-right' type='submit') Shorten URL
+
+    p
+
+    div(ng-if='result.key')
+      p Your shortened link :
+
+      .panel.panel-default(class='cursor-text animated zoomInDown')
+        .panel-body
+          p
+          .row
+            .col-md-1
+              button(type="button" class="btn btn-sm btn-default" data-toggle="popover" data-placement="bottom" data-trigger="focus" title='Copy' data-content="Copied !")
+                span(class='cursor-hand glyphicon glyphicon-edit' aria-hidden='true')
+            .col-md-11
+              p
+                a.cursor-text(href='/{{ result.key }}' target='_blank') {{ result.host }}/{{ result.key }}
