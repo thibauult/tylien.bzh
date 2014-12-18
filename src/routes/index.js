@@ -21,7 +21,7 @@ router.get('/:key', function(req, res) {
 
   Link.findByKey(key, function(link) {
 
-    if(link) res.redirect('http://' + link.url);
+    if(link) res.redirect(link.url);
     else     res.sendStatus(404);
   });
 });
