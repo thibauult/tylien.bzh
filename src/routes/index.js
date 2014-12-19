@@ -6,7 +6,7 @@ var Link = require('../models/link');
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', {
-    title: 'TyLien.bzh | Home'
+    title: 'tylien.bzh | home'
   });
 });
 

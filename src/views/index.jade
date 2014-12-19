@@ -4,29 +4,35 @@ block content
 
   #index
     div(ng-controller='HomeCtrl')
-      p
 
-      form
+      form.form-inline(role='form')
         .row
-          .col-md-10.col-sm-6
-            input.form-control.input-lg.input-transparent(ng-model='url' id='urlInput' placeholder='{{ urlPlaceholder }}' size=64)
-          .col-md-2.col-sm-6
-            button.btn.btn-success.btn-lg(ng-click='submit()' class='pull-right' type='submit')
+          .col-md-10
+            .form-group
+              input.form-control.input-lg.input-transparent(ng-model='url' placeholder='{{ urlPlaceholder }}')
+          .col-md-2
+            button.btn.btn-success.btn-lg.pull-right(ng-click='submit()' type='submit')
               span(translate='btn.shorten')
 
-      p
+      .row
+        .col-md-12
+          .panel.panel-transparent.form-control.cursor-text
+            .panel-body
+              //h3 Hello
+              .loader
+                img(src="img/loading/loading-spin.svg" alt="Loading icon")
 
-      div(ng-if='result.key')
+    div(ng-if='result.key')
 
-        .row
-          .col-lg-12
-            h2(translate='title.shortened.link')
+      .row
+        .col-md-12
+          h2(translate='title.shortened.link')
 
-        .row
-          .col-lg-12
-            .panel.panel-transparent(class='cursor-text animated zoomInDown')
-              .panel-body
-                h4(ng-if='result.port == 80')
-                  a.cursor-text(href='/{{ result.key }}' target='_blank') {{ result.host }}/{{ result.key }}
-                h4(ng-if='result.port != 80')
-                  a.cursor-text(href='/{{ result.key }}' target='_blank') {{ result.host }}:{{ result.port }}/{{ result.key }}
+      .row
+        .col-md-12
+          .panel.panel-transparent(class='cursor-text animated zoomInDown')
+            .panel-body
+              h4(ng-if='result.port == 80')
+                a.cursor-text(href='/{{ result.key }}' target='_blank') {{ result.host }}/{{ result.key }}
+              h4(ng-if='result.port != 80')
+                a.cursor-text(href='/{{ result.key }}' target='_blank') {{ result.host }}:{{ result.port }}/{{ result.key }}
