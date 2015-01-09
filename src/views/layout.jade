@@ -22,7 +22,8 @@ html(ng-app='tyLienApp')
               a(ng-click='setLang("en")' href='#') EN
             li.presentation(ng-class='{ active: currentLang == "bzh" }')
               a(ng-click='setLang("bzh")' href='#') BZH
-        h1(translate='title.app').animated.bounceInLeft
+        h1(translate='title.app' class='hidden-xs').animated.bounceInLeft
+        h3(translate='title.app' class='visible-xs').animated.bounceInLeft
 
         // test
 

@@ -50,9 +50,10 @@ var tyLienApp = angular.module('tyLienApp', ['pascalprecht.translate'])
 
         var urlPattern = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/;
 
-        $scope.url = '';
+        $scope.url = 'www.google.fr';
         $scope.urlPlaceholder = '';
 
+        $scope.isLoading = false;
         $scope.result = {
             host: $location.host(),
             port: $location.port()
@@ -62,16 +63,19 @@ var tyLienApp = angular.module('tyLienApp', ['pascalprecht.translate'])
 
             var url = $scope.url;
 
-            if(url) {
+            if(/^([a-zA-Z0-9]+.)/.test(url)) {
 
                 url = url.indexOf('www.') == 0 ? 'http://' + url : url;
 
                 if(urlPattern.test(url)) {
 
+                    $scope.isLoading = true;
+
                     $http.post('/', { url: url })
                         .success(function(data) {
                             $scope.result.key = data._id;
                             $scope.url = url;
+                            $scope.isLoading = false;
                         }
                     );
                 }

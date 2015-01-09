@@ -7,7 +7,7 @@ block content
 
       form.form-inline(role='form')
         .row
-          .col-md-10
+          .col-md-10.col-sm-12.col-xs-12
             .form-group
               input.form-control.input-lg.input-transparent(ng-model='url' placeholder='{{ urlPlaceholder }}')
           .col-md-2
@@ -16,23 +16,15 @@ block content
 
       .row
         .col-md-12
-          .panel.panel-transparent.form-control.cursor-text
+          .panel.panel-transparent.form-control
             .panel-body
-              //h3 Hello
-              .loader
+              .loader.cursor-hand(ng-if='isLoading')
                 img(src="img/loading/loading-spin.svg" alt="Loading icon")
 
-    div(ng-if='result.key')
-
-      .row
-        .col-md-12
-          h2(translate='title.shortened.link')
-
-      .row
-        .col-md-12
-          .panel.panel-transparent(class='cursor-text animated zoomInDown')
-            .panel-body
-              h4(ng-if='result.port == 80')
-                a.cursor-text(href='/{{ result.key }}' target='_blank') {{ result.host }}/{{ result.key }}
-              h4(ng-if='result.port != 80')
-                a.cursor-text(href='/{{ result.key }}' target='_blank') {{ result.host }}:{{ result.port }}/{{ result.key }}
+              .result.cursor-text(ng-if='result.key')
+                .span.animated.bounceIn
+                  h2(translate='title.shortened.link')
+                  h4(ng-if='result.port == 80')
+                    a.cursor-text(href='/{{ result.key }}' target='_blank') {{ result.host }}/{{ result.key }}
+                  h4(ng-if='result.port != 80')
+                    a.cursor-text(href='/{{ result.key }}' target='_blank') {{ result.host }}:{{ result.port }}/{{ result.key }}

@@ -38,4 +38,8 @@ router.post('/', function(req, res) {
 
 });
 
+router.get('/translations', function(req, res) {
+  res.json(JSON.parse());
+});
+
 module.exports = router;

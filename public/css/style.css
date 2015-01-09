@@ -10,12 +10,11 @@ html, body {
 
 h1, h2, h3 {
   font-family: BasicTrip;
-  color: #fff;
 }
 
-h1 { font-size: 40pt; }
-h2 { font-size: 30pt; }
-h3 { font-size: 20pt; }
+h1 { font-size: 40pt; color: #ffffff; }
+h2 { font-size: 30pt; color: #ffffff }
+h3 { font-size: 20pt; color: #ffffff }
 
 .cursor-hand {
   cursor: pointer;
@@ -29,7 +28,7 @@ h3 { font-size: 20pt; }
 
   position: fixed;
 
-  background-image: url(../img/background.jpg);
+  background-image: url(../img/background_light.jpg);
   background-repeat: no-repeat;
   background-position: center center;
 
@@ -42,7 +41,7 @@ h3 { font-size: 20pt; }
   min-height: 650px;
 }
 
-.header h1 {
+.header h1, .header h3 {
   width: 50%;
 }
 
@@ -54,6 +53,10 @@ h3 { font-size: 20pt; }
 
 #index input {
   width: 100%
+}
+
+#index .input-transparent {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 #index .panel-transparent {
@@ -75,10 +78,17 @@ h3 { font-size: 20pt; }
 #index .panel-transparent .loader {
   position: relative;
   float: right;
+  display: inline-block;
 }
 
-#index .input-transparent {
-  background-color: rgba(255, 255, 255, 0.2);
+#index .panel-transparent .result {
+  color: rgb(68, 108, 179);
+  float: left;
+  display: inline-block;
+
+  -webkit-transform-origin: center bottom;
+  -ms-transform-origin: center bottom;
+  transform-origin: center bottom;
 }
 
 footer {

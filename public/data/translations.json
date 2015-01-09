@@ -1,0 +1,22 @@
+{
+  "fr" : {
+    "title.app" : "TyLien.bzh",
+    "msg.url" : "Collez ici votre lien",
+    "btn.shorten" : "Raccourcir",
+    "title.shortened.link" : "Votre ty lien"
+  },
+
+  "en" : {
+    "title.app" : "TyLien.bzh",
+    "msg.url" : "Paste your long URL here",
+    "btn.shorten" : "Shorten",
+    "title.shortened.link" : "Your shortened link"
+  },
+
+  "bzh" : {
+    "title.app" : "TyLien.bzh",
+    "msg.url" : "Colle ton lien ici que c'est",
+    "btn.shorten" : "Kenavo",
+    "title.shortened.link" : "V'la ton lien mignon"
+  }
+}
