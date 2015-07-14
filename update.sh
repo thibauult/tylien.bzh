@@ -3,4 +3,4 @@
 git pull
 npm install
 bower install
-pm2 restart COMPTAPP
+pm2 restart TYLIEN
