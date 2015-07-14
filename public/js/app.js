@@ -50,7 +50,7 @@ var tyLienApp = angular.module('tyLienApp', ['pascalprecht.translate'])
 
         var urlPattern = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/;
 
-        $scope.url = 'www.google.fr';
+        $scope.url = '';
         $scope.urlPlaceholder = '';
 
         $scope.isLoading = false;
