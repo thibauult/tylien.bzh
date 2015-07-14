@@ -2,16 +2,8 @@
  * Created by tibus on 16/12/14.
  */
 var mongoose = require('mongoose');
-var ShortId = require('mongoose-shortid');
 
 var linkSchema = mongoose.Schema({
-    _id: {
-        type: ShortId,
-        len: 6,              // Length 6 characters
-        base: 62,            // Web-safe base 62 encoded string
-        alphabet: undefined, // Use default alphabet for base
-        retries: 4           // Four retries on collision
-    },
     url    : { type: String, require: true },
     key    : { type: String, require: true },
     date   : { type: Date, default: Date.now },
