@@ -7,10 +7,10 @@ var ShortId = require('mongoose-shortid');
 var linkSchema = mongoose.Schema({
     _id: {
         type: ShortId,
-        len: 7,     // Length 7 characters
-        base: 64,   // Web-safe base 64 encoded string
+        len: 5,              // Length 5 characters
+        base: 64,            // Web-safe base 64 encoded string
         alphabet: undefined, // Use default alphabet for base
-        retries: 4  // Four retries on collision
+        retries: 4           // Four retries on collision
     },
     url    : { type: String, require: true },
     key    : { type: String, require: true },
