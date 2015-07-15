@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var i18n = require('i18n');
 
 var routes = require('./src/routes/index');
 
@@ -14,8 +15,18 @@ var app = express();
 app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'jade');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+// i18n setup
+i18n.configure({
+    locales: ['en', 'fr'],
+    defaultLocale: 'fr',
+    cookie: 'locale',
+    directory: __dirname + '/src/views/locales'
+});
+
+// init i18n module for this loop
+app.use(i18n.init);
+
+app.use(favicon(__dirname + '/public/favicon.png'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -60,6 +71,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;

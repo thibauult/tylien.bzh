@@ -1,17 +1,15 @@
 var express = require('express');
 var router = express.Router();
+var i18n = require('i18n');
 
 var Link = require('../models/link');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', {
-    title: 'tylien.bzh | home'
-  });
-});
 
-router.get('/api/hello/:name', function(req, res) {
-  res.send('Hello ' + req.params.name + ' !');
+    res.render('index', {
+        title: 'tylien.bzh | home'
+    });
 });
 
 /* GET a link */
@@ -38,8 +36,10 @@ router.post('/', function(req, res) {
 
 });
 
-router.get('/translations', function(req, res) {
-  res.json(JSON.parse());
+// set a cookie to requested locale
+router.get('/i18n/:locale', function (req, res) {
+    res.cookie('locale', req.params.locale);
+    res.redirect('/');
 });
 
 module.exports = router;

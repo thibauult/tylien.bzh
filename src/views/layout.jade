@@ -1,7 +1,7 @@
 doctype html
 html(ng-app='tyLienApp')
   head
-    title='tylien.bzh'
+    title=__("app.title")
 
     meta(name='viewport' content='width=device-width, initial-scale=1')
 
@@ -15,17 +15,13 @@ html(ng-app='tyLienApp')
     .container
       .header(ng-controller='HeaderCtrl')
         nav
-          ul(class='nav nav-pills pull-right')
-            li.presentation(ng-class='{ active: currentLang == "fr" }')
-              a(ng-click='setLang("fr")' href='#') FR
-            li.presentation(ng-class='{ active: currentLang == "en" }')
-              a(ng-click='setLang("en")' href='#') EN
-            li.presentation(ng-class='{ active: currentLang == "bzh" }')
-              a(ng-click='setLang("bzh")' href='#') BZH
+          ul.nav.nav-pills.pull-right
+            li.presentation.active
+              a(href="i18n/fr") FR
+            li.presentation.active
+              a(href="i18n/en") EN
         h1(translate='title.app' class='hidden-xs').animated.bounceInLeft
         h3(translate='title.app' class='visible-xs').animated.bounceInLeft
-
-        // test
 
       block content
 

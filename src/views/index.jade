@@ -4,15 +4,14 @@ block content
 
   #index
     div(ng-controller='HomeCtrl')
-
       form.form-inline(role='form')
         .row
           .col-md-10.col-sm-12.col-xs-12
             .form-group
-              input.form-control.input-lg.input-transparent(ng-model='url' placeholder='{{ urlPlaceholder }}')
+              input.form-control.input-lg.input-transparent(ng-model='url' placeholder=__('msg.url'))
           .col-md-2
             button.btn.btn-success.btn-lg.pull-right(ng-click='submit()' type='submit')
-              span(translate='btn.shorten')
+              span= __('btn.shorten')
 
       .row
         .col-md-12
