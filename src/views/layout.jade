@@ -13,15 +13,14 @@ html(ng-app='tyLienApp')
     .background-image(class='animated fadeIn')
 
     .container
-      .header(ng-controller='HeaderCtrl')
+      .header
         nav
           ul.nav.nav-pills.pull-right
-            li.presentation.active
-              a(href="i18n/fr") FR
-            li.presentation.active
-              a(href="i18n/en") EN
-        h1(translate='title.app' class='hidden-xs').animated.bounceInLeft
-        h3(translate='title.app' class='visible-xs').animated.bounceInLeft
+            li(class="#{ getLocale() == 'fr' ? 'active' : '' }").presentation
+              a(href='/i18n/fr') FR
+            li(class="#{ getLocale() == 'en' ? 'active' : '' }").presentation
+              a(href='/i18n/en') EN
+        h1.animated.bounceInLeft= __("app.title")
 
       block content
 
@@ -38,12 +37,5 @@ html(ng-app='tyLienApp')
               span.footer-icon.twitter.animated
 
     script(type='text/javascript' src='/bower_components/jquery/dist/jquery.min.js')
-    script(type='text/javascript' src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
     script(type='text/javascript' src='/bower_components/angular/angular.min.js')
-    script(type='text/javascript' src='/bower_components/angular-translate/angular-translate.min.js')
     script(type='text/javascript' src='/js/app.js')
-
-    script(type='text/javascript').
-      $(function () {
-        $('[data-toggle="popover"]').popover();
-      });

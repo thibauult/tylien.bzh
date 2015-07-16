@@ -18,9 +18,10 @@ app.set('view engine', 'jade');
 // i18n setup
 i18n.configure({
     locales: ['en', 'fr'],
-    defaultLocale: 'fr',
+    defaultLocale: 'en',
     cookie: 'locale',
-    directory: __dirname + '/src/views/locales'
+    directory: __dirname + '/src/views/locales',
+    objectNotation: true
 });
 
 // init i18n module for this loop

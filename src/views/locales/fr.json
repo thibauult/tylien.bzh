@@ -1,6 +1,10 @@
 {
-  "app.title" : "ylien.bzh",
-  "msg.url" : "Collez ici votre lien",
-  "btn.shorten" : "Raccourcir",
-  "title.shortened.link" : "Votre ty lien"
+	"app": {
+		"title": "tylien.bzh",
+		"author": "Thibault Pensec"
+	},
+	"search": {
+		"placeholder": "Collez ici votre lien",
+		"button": "Raccourcir"
+	}
 }
