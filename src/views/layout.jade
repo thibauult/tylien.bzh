@@ -20,7 +20,7 @@ html(ng-app='tyLienApp')
               a(href='/i18n/fr') FR
             li(class="#{ getLocale() == 'en' ? 'active' : '' }").presentation
               a(href='/i18n/en') EN
-        h1.animated.bounceInLeft= __("app.title")
+        h1.title.animated.bounceInLeft= __("app.title")
 
       block content
 
@@ -44,6 +44,5 @@ html(ng-app='tyLienApp')
         (i[r].q=i[r].q || []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
         ga('create', 'UA-65230690-1', 'auto');
         ga('send', 'pageview');
