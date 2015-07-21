@@ -1,10 +1,13 @@
 {
-	"app": {
-		"title": "tylien.bzh",
-		"author": "Thibault Pensec"
-	},
-	"search": {
-		"placeholder": "Collez ici votre lien",
-		"button": "Raccourcir"
-	}
+  "app": {
+    "title": "tylien.bzh",
+    "author": "Thibault Pensec"
+  },
+  "search": {
+    "placeholder": "Collez ici votre lien",
+    "button": "Raccourcir"
+  },
+  "result": {
+    "hereYourLink": " Voici votre tylien : "
+  }
 }

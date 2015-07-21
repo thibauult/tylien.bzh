@@ -106,14 +106,20 @@ h1.title {
 }
 
 #index .panel-transparent .result {
-  color: rgb(68, 108, 179);
-  float: left;
-  display: inline-block;
+    color: rgb(68, 108, 179);
+    float: left;
+    display: inline-block;
 
-  -webkit-transform-origin: center bottom;
+    font-size: 30pt;
+
+    -webkit-transform-origin: center bottom;
       -ms-transform-origin: center bottom;
           transform-origin: center bottom;
 }
+
+/*
+    FOOTER PART
+*/
 
 footer {
   position: absolute;

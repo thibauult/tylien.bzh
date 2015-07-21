@@ -6,5 +6,8 @@
 	"search": {
 		"placeholder": "Paste your long URL here",
 		"button": "Shorten"
+	},
+	"result": {
+		"hereYourLink": " Here your tylien : "
 	}
 }

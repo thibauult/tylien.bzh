@@ -4,12 +4,14 @@
 var mongoose = require('mongoose');
 var ShortId = require('mongoose-shortid');
 
+var alphabet = '0123456789abcdefghijklmnopqrstwxyzABCDEFGHIJKLMNOPQRSTWXYZ';
+
 var linkSchema = mongoose.Schema({
     _id: {
         type: ShortId,
-        len: 5,              // Length 5 characters
+        len: 4,              // Length 3 characters
         base: 64,            // Web-safe base 64 encoded string
-        alphabet: undefined, // Use default alphabet for base
+        alphabet: alphabet, // Use default alphabet for base
         retries: 4           // Four retries on collision
     },
     url    : { type: String, require: true },
