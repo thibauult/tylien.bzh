@@ -25,5 +25,5 @@ block content
                                 p
                                     span.glyphicon.glyphicon-copy
                                     span=__("result.hereYourLink")
-                                    a.animated.bounceIn.cursor-text(ng-if='result.port == 80' href='/{{ result.key }}' target='_blank') {{ result.host }}/{{ result.key }
+                                    a.animated.bounceIn.cursor-text(ng-if='result.port == 80' href='/{{ result.key }}' target='_blank') {{ result.host }}/{{ result.key }}
                                     a.animated.bounceIn.cursor-text(ng-if='result.port != 80' href='/{{ result.key }}' target='_blank') {{ result.host }}:{{ result.port }}/{{ result.key }}
