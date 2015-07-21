@@ -7,7 +7,7 @@ var tyLienApp = angular.module('tyLienApp', [])
 
         var urlPattern = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/;
 
-        $scope.url = 'www.google.com';
+        $scope.url = '';
         $scope.urlPlaceholder = '';
         $scope.urlFormatError = false;
 
