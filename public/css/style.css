@@ -19,6 +19,8 @@ body {
     font-family: HelveticaNeueThin;
 }
 
+/* TITLE */
+
 h1.title {
     font-family: BasicTrip;
     font-size: 20pt;
@@ -53,20 +55,33 @@ h1.title {
 
 .background-image {
 
-  position: fixed;
+    background: url(../img/background_light.jpg) no-repeat center center;
 
-  background: url(../img/background_light.jpg) no-repeat center center;
+    position: fixed;
+    top: -5px;
+    left: -5px;
+    width: 105%;
+    height: 105%;
 
-  -webkit-background-size: cover;
-     -moz-background-size: cover;
-       -o-background-size: cover;
-          background-size: cover;
-  width: 100%;
-  height: 100%;
+    -webkit-filter: blur(5px);
+       -moz-filter: blur(5px);
+         -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+            filter: blur(5px);
+
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
+
 }
 
 .header h1, .header h3 {
   width: 50%;
+}
+
+#index .row {
+    margin-bottom: 20px;
 }
 
 #index .form-group {
@@ -83,6 +98,10 @@ h1.title {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+#index .link-preview {
+    font-size: 2.3em;
+}
+
 #index .panel-transparent {
   background-color: rgba(242, 241, 239, 0.2);
   text-align: center;
@@ -91,7 +110,6 @@ h1.title {
      -moz-border-radius: 10px 10px 10px 10px;
           border-radius: 10px 10px 10px 10px;
 
-  margin: 20px 0;
   height: 300px;
 }
 

@@ -22,12 +22,25 @@ router.get('/:key', function(req, res) {
   });
 });
 
+/* CHECK a link */
+router.get('/check/:key', function(req, res) {
+
+    var key = req.params.key;
+
+    Link.findByKey(key, function(link) {
+
+        if(link) res.sendStatus(200);
+        else     res.sendStatus(404);
+    });
+});
+
 /* POST a link */
 router.post('/', function(req, res) {
 
   var url = req.body.url; //TODO detect if starts with 'http://' or 'https://' and remove it. And check if ends with '/'
+  var customKey = req.body.customKey;
 
-  Link.findOrCreateByUrl(url, function(link) {
+  Link.findOrCreateByUrl(url, customKey, function(link) {
     if(link) res.json(link);
     else     res.sendStatus(404);
   });

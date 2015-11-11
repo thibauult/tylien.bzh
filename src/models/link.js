@@ -20,23 +20,35 @@ var linkSchema = mongoose.Schema({
     clicks : { type: Number, default: 0 }
 });
 
-linkSchema.statics.findOrCreateByUrl = function(url, cb) {
+linkSchema.statics.findOrCreateByUrl = function(url, customKey, cb) {
 
-    this.findOne({ url: url }, function(err, link) {
+    if(!customKey) {
 
-        if(err || !link) {
-            new Link({ url: url })
-                .save(function(err, link) {
-                    if(err)       cb(null);
-                    else if(link) cb(link);
-                }
-            );
-        } else if(link) {
-            cb(link);
-        } else {
-            cb(null);
-        }
-    });
+        this.findOne({ url: url }, function(err, link) {
+
+            if(err || !link) {
+                new Link({ url: url })
+                    .save(function(err, link) {
+                        if(err)       cb(null);
+                        else if(link) cb(link);
+                    }
+                );
+            } else if(link) {
+                cb(link);
+            } else {
+                cb(null);
+            }
+        });
+    }
+    else {
+
+        new Link({ _id: customKey, url: url })
+            .save(function(err, link) {
+                if(err)       cb(null);
+                else if(link) cb(link);
+            }
+        );
+    }
 }
 
 linkSchema.statics.findByKey = function(key, cb) {
