@@ -14,6 +14,7 @@ var tyLienApp = angular.module('tyLienApp', [])
         $scope.customKey = '';
         $scope.customKeyExists = false;
         $scope.customKeyLoading = false;
+        $scope.customKeyInvalid = false;
 
         $scope.isLoading = false;
         $scope.result = {
@@ -61,20 +62,27 @@ var tyLienApp = angular.module('tyLienApp', [])
 
             if($scope.customKey.length > 2) {
 
-                $scope.customKeyExists = false;
-                $scope.customKeyLoading = true;
+                if(checkCustomKey($scope.customKey)) {
 
-                $http.get('/check/' + $scope.customKey)
-                    .success(function() {
-                        $log.warn($scope.customKey + ' found.');
-                        $scope.customKeyExists = true;
-                        $scope.customKeyLoading = false;
-                    })
-                    .error(function() {
-                        $log.info($scope.customKey + ' not found.');
-                        $scope.customKeyExists = false;
-                        $scope.customKeyLoading = false;
-                    });
+                    $scope.customKeyExists = false;
+                    $scope.customKeyLoading = true;
+                    $scope.customKeyInvalid = false;
+
+                    $http.get('/check/' + $scope.customKey)
+                        .success(function() {
+                            $log.warn($scope.customKey + ' found.');
+                            $scope.customKeyExists = true;
+                            $scope.customKeyLoading = false;
+                        })
+                        .error(function() {
+                            $log.info($scope.customKey + ' not found.');
+                            $scope.customKeyExists = false;
+                            $scope.customKeyLoading = false;
+                        });
+                }
+                else {
+                    $scope.customKeyInvalid = true;
+                }
             }
         };
 
@@ -85,8 +93,7 @@ var tyLienApp = angular.module('tyLienApp', [])
         }
 
         function checkCustomKey(customKey) {
-            //TODO check the custom key
-            return true;
+            return /^[a-zA-Z0-9_-]+$/.test(customKey);
         }
 
     });

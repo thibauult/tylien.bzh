@@ -12,13 +12,14 @@ block content
                             span(ng-if='urlFormatError' class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true")
                 .row
                     .col-md-3
-                        .form-group(ng-class="{'has-error has-feedback': customKeyExists && customKey.length > 2}")
+                        .form-group(ng-class="{'has-error has-feedback': customKeyExists && customKey.length > 2 || customKeyInvalid && customKey.length > 2}")
                             input.form-control.input-lg.input-transparent(type='text' ng-model='customKey' ng-change='onCustomKeyChanged()' placeholder='Custom link (optional)')
                     .col-md-7
                         span.link-preview(ng-if='customKey.length > 2')
                             i.fa.fa-spinner.fa-spin(ng-if='customKeyLoading')
-                            i.fa.fa-hand-o-right(ng-if='!customKeyLoading && !customKeyExists') &nbsp;tylien.bzh/{{customKey}}
+                            i.fa.fa-hand-o-right(ng-if='!customKeyLoading && !customKeyExists && !customKeyInvalid') &nbsp;tylien.bzh/{{customKey}}
                             i.fa.fa-exclamation(ng-if='!customKeyLoading && customKeyExists') &nbsp;Link already exists !
+                            i.fa.fa-exclamation(ng-if='!customKeyLoading && customKeyInvalid') &nbsp;Invalid custom link !
                     .col-md-2
                         button.btn.btn-success.btn-lg.pull-right(ng-click='submit()' type='submit')
                             span= __('search.button')
